@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/public'));
 
+//所要处理的静态路由必须引进server服务页面
 app.use("/", hello);
 app.use('/',addEdit);
 app.use('/',editList);

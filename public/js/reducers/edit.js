@@ -1,38 +1,18 @@
 /**
  * Created by lmy on 17-8-21.
  */
-// export default (state = {submitSuccess: ""}, action) => {
-//     if(action.type = "SUBMIT_SUCCESS"){
-//         state.submitSuccess = action.isSuccess;
-//
-//         return Object.assign({},state);
-//     }
-//     if (action.type === 'DELETE_EDIT_FLAG') {
-//
-//         switch (action.data) {
-//             case 'success':
-//                 state.deleteFlag = true;
-//                 break;
-//             default:
-//                 state.deleteFlag = false;
-//         }
-//
-//         return Object.assign({}, state);
-//     }
-//     return state;
-// }
-// export default (state = {aList: ""}, action) => {
-//     if(action.type === 'ALL_LIST') {
-//         state.aList = "wang";
-//         console.log(state.aList);
-//         return Object.assign({}, state);
-//     }
-//     return state;
-// }
-export default (state = {aList:[],show:[]}, action) => {
-    if(action.type === 'ALL_LIST') {
-        const aList = state.aList;
-        return {aList:action.data};
+import marked from 'marked';
+//管理markdown改变事件的触发，markdown转换成html语法
+export default (state = {check:'',title:'',text:''}, action) => {
+    switch(action.type){
+        case 'TITLE_CHANGE':
+        case 'TEXT_CHANGE':
+            return {check:action.check,title:marked(action.title),text:marked(action.text)};
+        case 'SHOW_INFO':
+            return {check:action.data.check,title:marked(action.data.title),text:marked(action.data.text)};
+        case 'CLEAR_CHECK':
+            return {check:action.check,title:action.title,text:action.text};
+        default:
+            return state;
     }
-    return state;
 }

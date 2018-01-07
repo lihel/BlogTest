@@ -1,18 +1,17 @@
 import Hello from "../components/hello";
 import {connect} from "react-redux";
-
+import { sayHello } from '../action';
 const mapStateToProps = (state) => {
     return {
         hello: state.hello.value
     }
 };
-
-const mapDispatchToProps = (dispatch) => {
-    return {
+const mapDispatchToProps = (dispatch,ownProps) => ({
+    // return {
         onDisplayHello: () => {
-            dispatch({type: "GET_HELLO"});
+            dispatch(sayHello(ownProps.hello));
         }
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+    // };
+});
+const PublishLink = connect(mapStateToProps, mapDispatchToProps)(Hello);
+export default　PublishLink;

@@ -9,10 +9,10 @@ import middleHello from './middlewares/hello';
 import middleEdit from './middlewares/edit';
 import middleDeleteEdit from './middlewares/deleteEdit';
 
-
-import Hello from './containers/hello';
-import Edit from './containers/edit';
-
+//hello的demo,可将容器组件再次封装（可使用ownProps属性传递参数），将组件页面引入显示
+import Change from './components/helloChange';
+//直接将容器组件引入，通过与组件之间的相互关联，引入页面
+import Edit from './containers/editChange';
 
 const createMiddlewareStore = applyMiddleware(middleHello,middleEdit,middleDeleteEdit)(createStore);
 
@@ -20,7 +20,7 @@ const store = createMiddlewareStore(reducer);
 
 render(<Provider store={store}>
     <Router history={browserHistory}>
-        <Route path="/" component={Hello}/>
+        <Route path="/" component={Change} />
         <Route path='/edit' component={Edit}/>
     </Router>
 </Provider>, document.getElementById("content"));
