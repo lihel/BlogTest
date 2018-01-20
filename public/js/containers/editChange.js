@@ -43,7 +43,6 @@ function mapDispatchToProps(dispatch){
         },//内容改变markdown同步
         getInfo: (e) => {
             const check=e.target.parentNode.id;
-            console.log(check);
             const text=e.target.parentNode.title;
             const title=e.target.innerText;
             document.getElementsByClassName("editText")[0].value = text;
@@ -59,11 +58,6 @@ function mapDispatchToProps(dispatch){
                 //check通过className传递（判断）
                 if(e.target.className === ''){
                     alert("发布成功～～～～");
-                    //发布完清空编辑框
-                    document.getElementsByClassName("editText")[0].value = '';
-                    document.getElementsByClassName("editTitle")[0].value = '';
-                    document.getElementsByClassName("markdown-rendered-contect")[0].innerText = '';
-                    document.getElementsByClassName("markdown-rendered-contect")[1].innerText = '';
 
                 }else{
                     alert("更新成功～～～～");
