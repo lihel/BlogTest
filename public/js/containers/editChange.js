@@ -44,6 +44,7 @@ function mapDispatchToProps(dispatch){
         getInfo: (e) => {
             const check=e.target.parentNode.id;
             console.log(check);
+
             const text=e.target.parentNode.title;
             const title=e.target.innerText;
             document.getElementsByClassName("editText")[0].value = text;
