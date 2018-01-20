@@ -8,6 +8,7 @@ const hello = require('./server/routers/hello');
 const addEdit = require('./server/routers/addEdit');
 const editList = require('./server/routers/editList');
 const editDelete = require('./server/routers/deleteEdit');
+const login = require('./server/routers/login');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -19,6 +20,7 @@ app.use("/", hello);
 app.use('/',addEdit);
 app.use('/',editList);
 app.use('/',editDelete);
+app.use("/",login);
 
 app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
