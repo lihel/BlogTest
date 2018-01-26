@@ -1,29 +1,24 @@
 /**
  * Created by lmy on 17-11-12.
  */
-import Login from '../components/login'
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
+import Login from '../components/login';
+import {signIn} from "../action";
 
 const mapStateToProps = (state) => {
-    // console.log("+++++++++++++++++");
-    // console.log(state.login.logInfo);
     return {
-        logSuccess: state.login.logSuccess,
-        logInfo: state.login.logInfo
-    }
-}
+    };
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLogin: (userInfo) => {
-            //console.log(userInfo);
-            dispatch({type: 'LOGIN', data: userInfo})
-        },
-        onChangeLogSuccess: () => {
-            dispatch({type: "CHANGE_LOG_SUCCESS"});
-        }
-
+const mapDispatchToProps = (dispatch) => ({
+    onClickSignIn: () => {
+        const inputArray = document.getElementsByTagName("input");
+        const signInInfo = {
+            name:inputArray[0].value,
+            password:inputArray[1].value
+        };
+        dispatch(signIn(signInInfo));
     }
-}
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
