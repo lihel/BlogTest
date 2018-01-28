@@ -1,7 +1,6 @@
 /**
  * Created by lmy on 18-1-20.
  */
-
 const express = require('express');
 const router = express.Router();
 const db = require('../dbs/connection');
@@ -20,6 +19,15 @@ router.post('/signin', (req, res) => {
                 console.log('用户名密码匹配成功！');
                 res.json({states:'SUCCESS',type:'0'});//普通用户登录
             }else　if(result[0].password === password && result[0].type === '1'){
+                let data = {};
+                data.username = name;
+                data.userType = result[0].type;
+                data.password = result[0].password;
+                data.userId = result[0].user_id;
+                data.headPath = result[0].head_path;
+                req.session.signInInfo = data;
+                // responseClient(res,200,0,'')
+                console.log(req.session);
                 console.log('管理员登录！');
                 res.json({states:'SUCCESS',type:'1'});//管理员登录
             }else{
