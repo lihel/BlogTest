@@ -15,20 +15,19 @@ router.post('/signup', (req, res) => {
     let sex = req.body.signUpInfo.sex;
     const git = req.body.signUpInfo.git;
     const blog = req.body.signUpInfo.blog;
-    if(sex === true){
+
+    if(sex === '女'){
         sex = '0';//女生
     }else{
         sex = '1';
     }
     db.query(signSQL.findId,name,function (err, result){
         if(err){
-            console.log("eeeeeeeee");
             console.log(err);
         }else{
             if(result.length === 0){
                 db.query(signSQL.insert,[name,password],function (err, result){
                     if(err){//插入user表信息
-                        console.log("charushibai");
                         console.log(err);
                     }else{
                         db.query(signSQL.findId,name,function (err, result){

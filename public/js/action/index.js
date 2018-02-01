@@ -57,3 +57,14 @@ export const signIn = (signInInfo) => ({
     type: 'SIGN_IN',
     signInInfo
 });
+
+//修改用户信息
+export const FixInfo = (newInfo) => ({
+    type:'UPDATE_INFO',
+    newInfo
+});
+//进入个人主页
+export const enterMyhome=(myinfo)=>({
+   type:'MY_HOME',
+    myinfo
+});
