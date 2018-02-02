@@ -64,7 +64,9 @@ export const FixInfo = (newInfo) => ({
     newInfo
 });
 //进入个人主页
+/*
 export const enterMyhome=(myinfo)=>({
    type:'MY_HOME',
     myinfo
 });
+*/

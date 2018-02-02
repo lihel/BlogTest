@@ -1,6 +1,7 @@
 /**
  * Created by lmy on 18-2-1.
  */
+
 export default (state ={oldInfo:{id: '',username:'',sex: '女',realName:'',github:'',blog:'',major_class:'',password:'',headPath:''}}, action) => {
     switch(action.type){
         case 'GET_OLD_INFO':

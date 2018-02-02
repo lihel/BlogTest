@@ -1,6 +1,3 @@
-/**
- * Created by lmy on 18-2-1.
- */
 const express = require('express');
 const router = express.Router();
 const db = require('../dbs/connection');

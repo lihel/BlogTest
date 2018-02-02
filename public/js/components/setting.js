@@ -1,6 +1,3 @@
-/**
- * Created by lmy on 18-2-1.
- */
 import React from 'react';
 import '../../css/sign.css';
 import PropTypes from 'prop-types';
