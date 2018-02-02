@@ -2,7 +2,7 @@
  * Created by lmy on 18-1-24.
  */
 import React from 'react';
-export default class myhome extends Component {
+export default class myhome extends React.Component {
     myhome() {
 
     }

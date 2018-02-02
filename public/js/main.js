@@ -23,18 +23,22 @@ import SignUp from './containers/signup';
 import SignIn from './containers/login';
 import Admin from './containers/admin';
 import  Setting from './containers/setting';
+import Myhome from './containers/myhome';
+import detials from './containers/detialsOthers';
 
-const createMiddlewareStore = applyMiddleware(middleHello,middleEdit,middleDeleteEdit,middleIndex,middleSignUp,middleSignIn,middleAdmin,middleSetting)(createStore);
+const createMiddlewareStore = applyMiddleware(middleHello, middleEdit, middleDeleteEdit, middleIndex, middleSignUp, middleSignIn, middleAdmin, middleSetting)(createStore);
 
 const store = createMiddlewareStore(reducer);
 
 render(<Provider store={store}>
     <Router history={browserHistory}>
-        <Route path="/" component={Index} />
+        <Route path="/" component={Index}/>
         <Route path='/edit' component={Edit}/>
         <Route path='/signup' component={SignUp}/>
         <Route path='/signin' component={SignIn}/>
         <Route path='/admin' component={Admin}/>
-        <Route path='/setting' component={Setting} />
+        <Route path='/setting' component={Setting}/>
+        <Route path='/myhome' component={Myhome}/>
+        <Route path='/detials' component={detials}/>
     </Router>
 </Provider>, document.getElementById("content"));

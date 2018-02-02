@@ -2,7 +2,7 @@
  * Created by lmy on 18-1-24.
  */
 import React from 'react';
-export default class detialsOthers extends Component {
+export default class detialsOthers extends React.Component {
     detialsOthers() {
 
     }
